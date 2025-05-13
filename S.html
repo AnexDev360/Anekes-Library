@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aneke's Library |  User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("Images/01.jpg");
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            border-radius: 8px;
+        }
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        .profile-details, .update-profile {
+            display: none;
+        }
+        .profile-details.active, .update-profile.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container"99>
+    <h2>User Profile</h2>
+    <div class="profile-details" id="profile-details">
+        <p><strong>Name:</strong> <span id="display-name"></span></p>
+        <p><strong>Email:</strong> <span id="display-email"></span></p>
+        <p><strong>Phone:</strong> <span id="display-phone"></span></p>
+        <p><strong>School:</strong> <span id="display-school"></span></p>
+        <p><strong>College:</strong> <span id="display-college"></span></p>
+        <p><strong>Department:</strong> <span id="display-department"></span></p>
+        <p><strong>Level:</strong> <span id="display-level"></span></p>
+        <button onclick="showUpdateForm()">Update Profile</button>
+    </div>
+
+    <div class="update-profile" id="update-profile">Please fill appropriately with capital letters only.<br><br>
+        <form id="profile-form" onsubmit="saveProfile(event)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required pattern="[A-Z ]+" maxlength="50">
+                <span class="error" id="name-error">Only capital letters and spaces are allowed.</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+                <span class="error" id="email-error">Please enter a valid email.</span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required pattern="[0-9]{11}">
+                <span class="error" id="phone-error">Phone number must be 11 digits.</span>
+            </div>
+            <div class="form-group">
+                <label for="school">School</label>
+                <input type="text" id="school" required pattern="[A-Z ]+" maxlength="50">
+                <span class="error" id="school-error">Only capital letters and spaces are allowed.</span>
+            </div>
+            <div class="form-group">
+                <label for="college">College</label>
+                <input type="text" id="college" required pattern="[A-Z ]+" maxlength="50">
+                <span class="error" id="college-error">Only capital letters and spaces are allowed.</span>
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" id="department" required pattern="[A-Z ]+" maxlength="50">
+                <span class="error" id="department-error">Only capital letters and spaces are allowed.</span>
+            </div>
+            <div class="form-group">
+                <label for="level">Level</label>
+                <select id="level" required>
+                    <option value="">Select Level</option>
+                    <option value="100L">100L</option>
+                    <option value="200L">200L</option>
+                    <option value="300L">300L</option>
+                    <option value="400L">400L</option>
+                </select>
+                <span class="error" id="level-error">Please select a level.</span>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Function to display the update form
+    function showUpdateForm() {
+        document.getElementById('profile-details').style.display = 'none';
+        document.getElementById('update-profile').style.display = 'block';
+    }
+
+    // Function to save the profile details
+    function saveProfile(event) {
+        event.preventDefault();
+
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        var school = document.getElementById('school').value;
+        var college = document.getElementById('college').value;
+        var department = document.getElementById('department').value;
+        var level = document.getElementById('level').value;
+
+        // Save to localStorage
+        var profile = {
+            name: name,
+            email: email,
+            phone: phone,
+            school: school,
+            college: college,
+            department: department,
+            level: level
+        };
+        localStorage.setItem('profile', JSON.stringify(profile));
+
+        // Display profile details
+        displayProfile();
+    }
+
+    // Function to display profile details
+    function displayProfile() {
+        var profile = JSON.parse(localStorage.getItem('profile'));
+        if (profile) {
+            document.getElementById('display-name').innerText = profile.name;
+            document.getElementById('display-email').innerText = profile.email;
+            document.getElementById('display-phone').innerText = profile.phone;
+            document.getElementById('display-school').innerText = profile.school;
+            document.getElementById('display-college').innerText = profile.college;
+            document.getElementById('display-department').innerText = profile.department;
+            document.getElementById('display-level').innerText = profile.level;
+
+            document.getElementById('update-profile').style.display = 'none';
+            document.getElementById('profile-details').style.display = 'block';
+        }
+    }
+
+    // Check if profile details are already saved on page load
+    window.onload = function() {
+        var profile = JSON.parse(localStorage.getItem('profile'));
+        if (profile) {
+            displayProfile();
+        } else {
+            showUpdateForm();
+        }
+    }
+
+    // Real-time validation messages
+    document.getElementById('name').addEventListener('input', function() {
+        var pattern = new RegExp(this.pattern);
+        if (!pattern.test(this.value)) {
+            document.getElementById('name-error').style.display = 'block';
+        } else {
+            document.getElementById('name-error').style.display = 'none';
+        }
+    });
+
+    document.getElementById('email').addEventListener('input', function() {
+        if (!this.validity.valid) {
+            document.getElementById('email-error').style.display = 'block';
+        } else {
+            document.getElementById('email-error').style.display = 'none';
+        }
+    });
+
+    document.getElementById('phone').addEventListener('input', function() {
+        var pattern = new RegExp(this.pattern);
+        if (!pattern.test(this.value)) {
+            document.getElementById('phone-error').style.display = 'block';
+        } else {
+            document.getElementById('phone-error').style.display = 'none';
+        }
+    });
+
+    document.getElementById('level').addEventListener('change', function() {
+        if (this.value === '') {
+            document.getElementById('level-error').style.display = 'block';
+        } else {
+            document.getElementById('level-error').style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

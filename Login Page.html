@@ -1,0 +1,63 @@
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aneke's Library | Login</title>
+<style>
+    body {
+        size: large;
+        margin-top: 50px; margin-left: 150px; margin-right: 50px;  
+        background-image: url("Images/I5.jpg");
+        background-size: cover;
+        background-position: center;
+        color: rgb(0, 0, 0);
+        font-family: Arial, sans-serif;
+        button {
+            font-size: small; 
+            color:white; 
+            background-color:rgb(0, 0, 0); 
+            border-radius:5px; 
+            border:5px; 
+            border-color: white; 
+            width: 80px; 
+            height: 30px; 
+            padding: 5px;
+        }
+        text-shadow: 2px 2px 4px rgb(255, 255, 255)
+        }
+
+    button:active {
+        background-color: skyblue}
+    button:hover {
+        background-color: gray}
+
+    hr{width: 500; position:fixed}
+    #email{width: 500px; padding: 5px; margin: 0px}
+    #password{width: 500px; padding: 5px; margin: 0px}
+</style>
+</head>
+
+<body>
+<header>
+<font face="Calibri"; size="100" color="black"><b>Login</b></font><br><br><br><br><hr><br><br>
+</header>
+
+<form action="Dashboard.html" method="post">
+<label for="email">Email:</label><br>
+<input type="email" id="email" name="email" required width="200"><br><br>
+<label for="input">Password</label><br>
+<input type="password" id="password" name="password required" minlength="8 required">&nbsp;&nbsp;
+<button onclick="showMessage()">Login</button>
+<div id="message" style="display: none;">Login successful</div>
+</form>
+
+<p>Forgotten Password? <a href="Enter Your Email.html" target="_self">Reset Password</a></p><br><hr><br>
+
+<p>Don't have an account? <a href="Sign Up Page.html">Sign Up here</a></p>
+</section><br><br>
+<a href="Home Page.html">Home</a>
+
+</body>
+</html>

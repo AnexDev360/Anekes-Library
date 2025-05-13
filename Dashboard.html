@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aneke's Library | Dashboard</title>
+    <link rel="stylesheet" href="CSS.css">
+
+<style>
+    body{
+        h1 {text-shadow: 2px 2px 4px rgb(255, 255, 255);}
+        p {text-shadow: 2px 2px 4px rgb(255, 255, 255);}}
+</style>
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <ul>
+                <li class="nav-item profile">
+                    <a href="User Profile.html" onclick="displaySection('profile')" class="active">
+                        <i class="fas fa-user"></i>Profile
+                    </a>
+                </li>
+                <li class="nav-item favorites">
+                    <a href="#" onclick="displaySection('favorites')">
+                        <i class="fas fa-heart"></i>Favorites
+                    </a>
+                </li>
+                <li class="nav-item browse">
+                    <a href="#" onclick="displaySection('browse')">
+                        <i class="fas fa-book"></i>Browse
+                    </a>
+                </li>
+                <li class="nav-item search">
+                    <a href="#" onclick="displaySection('search')">
+                        <i class="fas fa-search"></i>Search
+                    </a>
+                </li>
+                <li class="nav-item logout">
+                    <a href="Login Page.html" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>Welcome</h1>
+                <p><font color="red"><i>Please update your profile if you haven't.</i></font></p><br><hr><br>
+            </header>
+            <section id="statistics">
+                <div class="stat-card">
+                    <i class="fas fa-eye"></i>
+                    <div class="stat-info">
+                        <h3 id="viewedCount">0</h3>
+                        <p>Viewed Documents</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-search"></i>
+                    <div class="stat-info">
+                        <h3 id="searchCount">0</h3>
+                        <p>Searches</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-download"></i>
+                    <div class="stat-info">
+                        <h3 id="downloadCount">0</h3>
+                        <p>Downloaded Documents</p>
+                    </div>
+                </div>
+            </section>
+            <section id="profile" class="content-section" style="display: block;">
+                <h2>User Profile</h2>
+                <!-- User profile content will go here -->
+                <p>View and edit your personal information, change your login password, and customize account settings.</p>
+            </section>
+            <section id="favorites" class="content-section" style="display: none;">
+                <h2>Favorites</h2>
+                <!-- Favorites content will go here -->
+                <p>Save your favourite documents or books for quick access. Add or remove documents from the favourites list, see recommended books based on favourites.</p>
+            </section>
+            <section id="browse" class="content-section" style="display: none;">
+                <h2>Browse Documents</h2>
+                <!-- Book browsing content will go here -->
+                <p>Explore and navigate through the Library's extensive catalog of resources: documents, e-books etc.</p>
+            </section>
+            <section id="search" class="content-section" style="display: none;">
+                <h2>Search Documents</h2>
+                <!-- Search content will go here -->
+                <p>Provides powerful tools to find specific documents, books or materials using keywords, level, course titles or codes.</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function displaySection(section) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach((el) => el.style.display = 'none');
+
+            // Show the selected section
+            document.getElementById(section).style.display = 'block';
+
+            // Remove the 'active' class from all navigation items
+            document.querySelectorAll('.nav-item a').forEach((el) => el.classList.remove('active'));
+
+            // Add the 'active' class to the clicked item
+            document.querySelector(`.nav-item.${section} a`).classList.add('active');}
+
+        function logout() {
+            // Perform logout operation, like clearing session data
+            console.log('Logging out...');
+            // Redirect to login page
+            window.location.href = 'Login Page.html';}
+
+        // Set the default section to 'profile' on page load
+        window.onload = function() {
+            displaySection('profile');}
+    </script>
+
+</body>
+</html>

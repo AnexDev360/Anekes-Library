@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+</head>
+<body>
+    <h2>EDUCATIONAL DETAILS</h2><br><hr>
+
+    <img src="" alt="Me" height="300" title="IMG 4.jpg">
+
+    <hr>
+    <form>
+        <label>Name</label> <input type="text">
+        <input type="file" name="" id="">
+        <br><br>
+        <label>Select number of sitting:</label> 
+        <label for="D1">1</label> 
+        <input type="radio" id="D1" name="choose">&nbsp; &nbsp; &nbsp;
+        <label for="D2">2</label>
+        <input type="radio" id="D2" name="choose"><br>
+        <font color="red">Note: In radio input type, the "name" is essential, for it to function as radio rather than checkbox, and the "name" must be the same on each radio input type, e.g: "name="choose".</font>
+        <br><br>
+        <label>Date of Birth</label> <input type="date">
+        <br><br>
+        <input type="submit"><br>
+    </form>
+    <p id="Center"></p>
+    <br>
+    <hr>
+    <br>
+    
+    <form>
+        <label for="1">Enter your email:</label><br>
+        <input type="email" name="Email" id="1"><br>
+        <label for="2">Enter your city name:</label><br>
+        <input type="text" name="City" id="2">&nbsp;&nbsp;
+        <input type="submit" name="Submit" value="Send"><br><br>
+    </form>
+    <font size="2" face="Arial" color="red">...with the above form, here's the output:</font><br> 
+    "Enter your email" will be submitted/referenced to as "Email" in the database output, while "Enter your City" name will be referenced to as City. <font color="red">Note:</font>Input type="name", determines where the input will be submitted.
+    <table border="1">
+        <thead>
+            <th>Email</th>
+            <th>City</th>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+    </table>
+
+    <br>
+
+    <label for="t1">Email</label><br>
+    <input type="email" name="em" id="t1"><br>
+    <label for="t2">Country</label><br>
+    <input type="text" name="co" id="t2">
+
+    <br>
+    <hr>
+    <br>
+    
+    <font color="blue"><b>Drop Down</b></font><br>
+    <label for="P1">Select Payment Method:</label> 
+    <select name="Payment" id="P1">
+        <option>Cash</option>
+        <option>Card</option>
+        <option>Transfer</option>
+    </select>&nbsp; &nbsp; &nbsp; <font color=red>or</font> &nbsp; &nbsp; &nbsp;
+    
+    <label for="R1">Cash</label>
+    <input type="radio" id="R1" name="Pay" value="Cash">&nbsp; &nbsp; &nbsp; &nbsp;
+    <label for="R2">Card</label>
+    <input type="radio" id="R2" name="Pay" value="Cash">&nbsp; &nbsp; &nbsp; &nbsp;
+    <label for="R3">Transfer</label>
+    <input type="radio" id="R3" name="Pay" value="Cash">&nbsp; &nbsp; &nbsp; &nbsp;
+    <br><br><font color="red"><b>Best for Form input (Type, Name, Value).</b></font><br>
+    <hr>
+    <form>
+        <select name="color">
+            <option>White</option>
+            <option>Red</option>
+            <option>Blue</option>
+            <option>Yellow</option>
+            <option>Green</option>
+            <option selected>Pink</option>
+            <option>Black</option>
+            <option>Brown</option>
+        </select>
+    </form><br><hr>
+    <select id="dropdown">
+        <option value="r">Red</option>
+        <option value="g">Green</option>
+        <option value="b">Blue</option>
+    </select><hr>
+    <select name="color">
+        <option value="r">Red</option>
+        <option value="g">Green</option>
+        <option value="b" selected>Blue</option>
+    </select>
+    <hr>
+    <font color="red"><b>Best format for Drop Down</b></font><br><br>
+    <form>
+        <label for="S1">Vehicle Type:</label>
+        <select name="Vehicle" id="S1">
+        <option value="Default">Select</option>
+        <option value="car">Car</option>
+        <option value="bus">Bus</option></select>
+        <br><br>
+        <label for="B1">Please rate our services:</label>
+        <select name="Feedback" id="B1">
+        <option value="Default" selected>Select</option>
+        <option value="5">Excellent</option>
+        <option value="4">Very Good</option>
+        <option value="3">Good</option>
+        <option value="2">Poor</option>
+        <option value="1">Very Poor</option></select><br><br>
+
+        For further messege:<br>
+        <textarea name="" id="" cols="50" rows="5" placeholder="Enter your message here"></textarea>
+    </form>
+
+</body>
+</html>
